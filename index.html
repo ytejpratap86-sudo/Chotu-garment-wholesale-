@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chotu Garment</title>
+<style>
+:root{--bg:#fff;--fg:#111;--mute:#666;--soft:#f5f5f5;--line:#e4e4e4;--acc:#D4A373;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111;--fg:#f3f3f3;--mute:#aaa;--soft:#1c1c1c;--line:#2e2e2e;--card:#181818}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.01em;margin:0}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+.bar{background:#111;color:#fff;text-align:center;font-size:13px;padding:8px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+.nav{display:flex;align-items:center;gap:14px;height:60px}
+.logo{font:700 20px Georgia,serif;letter-spacing:.08em;text-transform:uppercase}.logo b{color:var(--acc)}
+nav{display:flex;gap:18px;margin-left:auto;font-size:14px;overflow-x:auto}nav a{padding:6px 0;white-space:nowrap}nav a.on{border-bottom:2px solid var(--acc)}
+.ib{background:none;border:0;cursor:pointer;font-size:18px;padding:6px;position:relative}
+.cnt{position:absolute;top:-2px;right:-4px;background:var(--acc);color:#111;border-radius:9px;font-size:11px;padding:0 5px}
+.btn{display:inline-block;background:#111;color:#fff;border:1px solid #111;padding:12px 22px;border-radius:2px;cursor:pointer;font-weight:600;text-align:center}
+.btn.acc{background:var(--acc);border-color:var(--acc);color:#111}.btn.ghost{background:none;color:var(--fg);border-color:var(--fg)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.hero{background:#111;color:#fff;padding:72px 0}.hero h1{font-size:clamp(34px,7vw,64px);max-width:12em;line-height:1.05}
+.hero p{max-width:34em;color:#ccc;margin:16px 0 26px}.hero em{color:var(--acc);font-style:normal}
+section{padding:44px 0}.sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.sh h2{font-size:28px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(4,1fr);gap:20px}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column}
+.ph{aspect-ratio:3/4;background:linear-gradient(135deg,var(--soft),var(--line));display:grid;place-items:center;color:var(--mute);font-size:12px;position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:8px;left:8px;background:#111;color:#fff;font-size:11px;padding:2px 8px}.tag.acc{background:var(--acc);color:#111}
+.ci{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}.ci h3{font:600 15px system-ui}
+.pr b{font-size:17px}.pr s{color:var(--mute);font-size:13px;margin-left:6px}.pr i{color:#b4682a;font-size:12px;font-style:normal;margin-left:6px}
+.dots{display:flex;gap:5px}.dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
+.cat{padding:34px 16px;background:var(--soft);text-align:center;font:600 18px Georgia,serif;border:1px solid var(--line)}
+.promo{background:var(--acc);color:#111;padding:40px 0;text-align:center}.promo h2{font-size:30px}
+.why{display:grid;gap:16px}@media(min-width:760px){.why{grid-template-columns:repeat(3,1fr)}}.why div{padding:20px;background:var(--soft)}
+.tools{display:grid;gap:10px;margin-bottom:18px}@media(min-width:760px){.tools{grid-template-columns:2fr repeat(4,1fr)}}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--line);background:var(--bg);border-radius:2px}
+.pd{display:grid;gap:26px}@media(min-width:800px){.pd{grid-template-columns:1fr 1fr}}
+.thumbs{display:flex;gap:8px;margin-top:8px}.thumbs .ph{width:64px;aspect-ratio:1;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.chip{padding:8px 14px;border:1px solid var(--line);background:none;cursor:pointer;border-radius:2px}
+.chip.sel{background:#111;color:#fff;border-color:#111}.chip:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.err{color:#c0392b;font-size:14px;min-height:20px}.ok{color:#1e8449}
+.pg{display:flex;gap:8px;justify-content:center;margin-top:24px}
+#drawer{position:fixed;inset:0 0 0 auto;width:min(380px,100%);background:var(--bg);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:9;padding:16px;display:flex;flex-direction:column;overflow:auto}
+#drawer.open{transform:none}
+.row{display:flex;gap:10px;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+footer{background:#111;color:#bbb;padding:36px 0;font-size:14px}footer a{color:#fff}
+.note{background:var(--soft);padding:8px 12px;font-size:12px;color:var(--mute);text-align:center}
+.empty{text-align:center;padding:60px 0;color:var(--mute)}
+label{font-size:14px;display:block;margin:10px 0 4px}
+@media(prefers-reduced-motion:no-preference){.card{transition:transform .2s}.card:hover{transform:translateY(-3px)}}
+</style></head><body>
+<script>
+/* ===== CONFIG: fill in to connect your Supabase project (anon key only, never service role) ===== */
+const CFG={SUPABASE_URL:"https://blocbngvbvsiyflyvxcr.supabase.co",SUPABASE_ANON_KEY:"sb_publishable_XQvq1itRkhmxSVin8hwxLg_no4loHLz",WHATSAPP:"917080698250",EMAIL:"hello@example.com",PHONE:"+91 70806 98250",ADDRESS:"",HOURS:""};
+</script>
+<div class="bar">Free shipping and easy returns — edit this message in Website Content</div>
+<header><div class="wrap nav">
+<a class="logo" href="#/">Chotu <b>Garment</b></a>
+<nav id="nav"><a href="#/">Home</a><a href="#/shop">Shop</a><a href="#/shop?cats=1">Categories</a><a href="#/about">About</a><a href="#/contact">Contact</a></nav>
+<button class="ib" aria-label="Search" onclick="location.hash='#/shop?focus=1'">&#128269;</button>
+<button class="ib" aria-label="Cart" onclick="drawer(1)">&#128722;<span class="cnt" id="cc">0</span></button>
+</div></header>
+<div id="demo" class="note" hidden>Demo mode: sample items below are placeholders. Set Supabase keys in CFG to load your real catalogue.</div>
+<main id="app"></main>
+<aside id="drawer" aria-label="Cart"></aside>
+<footer><div class="wrap">
+<b style="color:#fff;font:700 18px Georgia">CHOTU GARMENT</b>
+<p>Email: <a id="fe"></a> · Phone: <span id="fp"></span></p>
+<p><a href="#/contact">Contact</a> · <a href="#/about">About</a> · <a href="#/admin">Admin Login</a> · Shipping &amp; Returns · Privacy Policy · Terms (add your policy text in Website Content)</p>
+<p>© <span id="yr"></span> Chotu Garment. All rights reserved.</p></div></footer>
+<script>
+const $=s=>document.querySelector(s),app=$('#app'),inr=n=>'₹'+Number(n).toLocaleString('en-IN');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const COL={Black:'#111',White:'#fff',Blue:'#2b4c9b',Red:'#c0392b'};
+/* ---------- data layer ---------- */
+const live=!!(CFG.SUPABASE_URL&&CFG.SUPABASE_ANON_KEY);
+async function sb(path,opt={}){const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/'+path,{...opt,headers:{apikey:CFG.SUPABASE_ANON_KEY,Authorization:'Bearer '+CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json',...(opt.headers||{})}});if(!r.ok)throw new Error(await r.text());return r.status===201?null:r.json()}
+const mk=(id,name,cat,price,orig,flags,sizes,cols,stock)=>({id,name,category:cat,price,original_price:orig,fabric:'Sample fabric details',description:'Placeholder description. Replace from the admin panel.',images:[],...flags,variants:sizes.flatMap(s=>cols.map(c=>({size:s,color:c,stock:stock(s,c)}))),created:id});
+const DEMO=[mk(1,'Classic Crew Tee','T-Shirts',499,699,{is_new:1,featured:1},['S','M','L','XL'],['Black','White'],(s,c)=>s=='XL'?0:12),
+mk(2,'Relaxed Polo','Polos',799,null,{best:1,featured:1},['M','L','XL'],['Blue','Black'],()=>8),
+mk(3,'Slim Fit Shirt','Shirts',1199,1499,{featured:1,best:1},['S','M','L'],['White','Blue'],()=>5),
+mk(4,'Everyday Joggers','Bottoms',999,null,{is_new:1},['M','L','XL','XXL'],['Black'],()=>10),
+mk(5,'Hooded Sweatshirt','Winter',1599,1999,{best:1,is_new:1},['M','L','XL'],['Black','Red'],(s,c)=>c=='Red'?0:6),
+mk(6,'Denim Jacket','Winter',2299,null,{featured:1},['M','L'],['Blue'],()=>0),
+mk(7,'Graphic Tee','T-Shirts',599,null,{is_new:1,best:1},['S','M','L','XL','XXL'],['White','Red'],()=>9),
+mk(8,'Chino Trousers','Bottoms',1399,1799,{},['M','L','XL'],['Black','Blue'],()=>7)];
+let P=[];
+async function load(){if(!live){P=DEMO;$('#demo').hidden=false;return}
+try{P=(await sb('products?select=*,category:categories(name),variants:product_variants(*)&is_published=eq.true')).map(p=>({...p,category:p.category?.name,featured:p.is_featured,best:p.is_best_seller,price:+p.price,original_price:p.original_price?+p.original_price:null,created:Date.parse(p.created_at)}))}catch(e){P=[];console.error(e)}}
+const stockOf=p=>p.variants.reduce((a,v)=>a+v.stock,0);
+/* ---------- cart ---------- */
+let cart=[];try{cart=JSON.parse(localStorage.getItem('cg_cart')||'[]')}catch(e){}
+const save=()=>{try{localStorage.setItem('cg_cart',JSON.stringify(cart))}catch(e){}$('#cc').textContent=cart.reduce((a,i)=>a+i.q,0)};
+function add(pid,size,color,q){const p=P.find(x=>x.id==pid),v=p.variants.find(v=>v.size==size&&v.color==color);const ex=cart.find(i=>i.pid==pid&&i.size==size&&i.color==color);const n=(ex?ex.q:0)+q;if(!v||n>v.stock)return false;ex?ex.q=n:cart.push({pid,size,color,q});save();drawer(1);return true}
+function drawer(open){const d=$('#drawer');let t=0;const rows=cart.map((i,ix)=>{const p=P.find(x=>x.id==i.pid);if(!p)return'';t+=p.price*i.q;return`<div class="row"><span>${esc(p.name)}<br><small>${i.size} / ${i.color} × ${i.q}</small></span><span>${inr(p.price*i.q)}<br><a href="#" onclick="cart.splice(${ix},1);save();drawer(1);return false"><small>Remove</small></a></span></div>`}).join('');
+const msg=encodeURIComponent('Hi Chotu Garment, I would like to order:\n'+cart.map(i=>{const p=P.find(x=>x.id==i.pid);return p?`${p.name} (${i.size}/${i.color}) x${i.q}`:''}).join('\n')+`\nTotal: ${inr(t)}`);
+d.innerHTML=`<div style="display:flex;justify-content:space-between"><h2>Your cart</h2><button class="ib" onclick="drawer(0)" aria-label="Close">✕</button></div>${rows||'<p class="empty">Your cart is empty.</p>'}${cart.length?`<p><b>Total: ${inr(t)}</b></p><button class="btn acc" style="width:100%;margin-bottom:8px" onclick="checkout()">Place Order</button><a class="btn ghost" style="display:block" target="_blank" rel="noopener" href="https://wa.me/${CFG.WHATSAPP}?text=${msg}">Or order on WhatsApp</a>`:''}`;d.classList.toggle('open',!!open)}
+function checkout(){const d=$('#drawer');d.innerHTML=`<div style="display:flex;justify-content:space-between"><h2>Checkout</h2><button class="ib" onclick="drawer(1)" aria-label="Back">←</button></div><form id="of"><label for="on">Name</label><input id="on" required maxlength="80"><label for="op">Phone</label><input id="op" type="tel" required pattern="[0-9+ ]{10,15}"><label for="oe">Email (optional)</label><input id="oe" type="email"><label for="oa">Delivery address</label><textarea id="oa" rows="3" required minlength="8"></textarea><label for="ot">Notes (optional)</label><input id="ot" maxlength="300"><p class="err" id="om"></p><button class="btn acc" id="ob" style="width:100%">Place Order</button><p><small>Payment is arranged directly with the seller after your order is confirmed.</small></p></form>`;
+$('#of').onsubmit=async e=>{e.preventDefault();const m=$('#om');m.className='err';if(!live){m.textContent='Orders are not connected in demo mode.';return}
+const items=cart.map(i=>{const p=P.find(x=>x.id==i.pid),v=p&&p.variants.find(v=>v.size==i.size&&v.color==i.color);return v?{variant_id:v.id,qty:i.q}:null}).filter(Boolean);$('#ob').disabled=true;
+try{const r=await sb('rpc/place_order',{method:'POST',body:JSON.stringify({p_name:$('#on').value,p_phone:$('#op').value,p_address:$('#oa').value,p_items:items,p_email:$('#oe').value||null,p_notes:$('#ot').value||null})});cart=[];save();
+d.innerHTML=`<h2>Order placed ✓</h2><p>Your order number is <b>#${r.order_no}</b>. Total: <b>${inr(r.total)}</b>. We will contact you to confirm.</p><a class="btn acc" target="_blank" rel="noopener" href="https://wa.me/${CFG.WHATSAPP}?text=${encodeURIComponent('Hi, I placed order #'+r.order_no)}">Message us on WhatsApp</a><button class="btn ghost" style="margin-top:8px" onclick="drawer(0)">Close</button>`;load()}
+catch(x){let t='Could not place order. Please try again.';try{t=JSON.parse(x.message).message||t}catch(_){}m.textContent=t;$('#ob').disabled=false}}}
+/* ---------- components ---------- */
+const card=p=>{const s=stockOf(p),disc=p.original_price>p.price?Math.round(100-p.price/p.original_price*100):0,cols=[...new Set(p.variants.map(v=>v.color))];
+return`<a class="card" href="#/product/${p.id}"><div class="ph">${p.images?.[0]?`<img loading="lazy" src="${esc(p.images[0])}" alt="${esc(p.name)}">`:'Image placeholder'}${!s?'<span class="tag">Sold out</span>':p.is_new?'<span class="tag acc">New</span>':''}</div><div class="ci"><h3>${esc(p.name)}</h3><div class="pr"><b>${inr(p.price)}</b>${disc?`<s>${inr(p.original_price)}</s><i>${disc}% off</i>`:''}</div><div class="dots">${cols.map(c=>`<span class="dot" title="${c}" style="background:${COL[c]||'#999'}"></span>`).join('')}</div><small style="color:var(--mute)">${[...new Set(p.variants.map(v=>v.size))].join(' · ')}</small></div></a>`};
+const sec=(t,list,link)=>`<section><div class="wrap"><div class="sh"><h2>${t}</h2><a href="${link}">View all →</a></div>${list.length?`<div class="grid">${list.slice(0,4).map(card).join('')}</div>`:'<p class="empty">Nothing here yet.</p>'}</div></section>`;
+/* ---------- pages ---------- */
+function home(){const cats=[...new Set(P.map(p=>p.category).filter(Boolean))];
+app.innerHTML=`<div class="hero"><div class="wrap"><h1>Discover Your Style with <em>Chotu Garment</em></h1><p>Quality everyday clothing, made to look sharp and feel good. Browse our latest collection for men, women and kids.</p><a class="btn acc" href="#/shop">Shop Now</a></div></div>
+${sec('Featured Products',P.filter(p=>p.featured),'#/shop')}<div style="background:var(--soft)">${sec('New Arrivals',P.filter(p=>p.is_new),'#/shop?sort=new')}</div>${sec('Best Sellers',P.filter(p=>p.best),'#/shop')}
+<section style="background:var(--soft)"><div class="wrap"><div class="sh"><h2>Shop by Category</h2></div><div class="grid g3">${cats.map(c=>`<a class="cat" href="#/shop?cat=${encodeURIComponent(c)}">${esc(c)}</a>`).join('')||'<p class="empty">Categories appear once products are added.</p>'}</div></div></section>
+<div class="promo"><div class="wrap"><h2>Promotional banner</h2><p>Edit this offer from Website Content in the admin panel.</p><a class="btn" href="#/shop">Shop the Offer</a></div></div>
+<section><div class="wrap"><div class="sh"><h2>Why Choose Us</h2></div><div class="why"><div><h3>Quality Fabrics</h3><p>Every piece is checked before it ships.</p></div><div><h3>Easy Enquiries</h3><p>Chat with us on WhatsApp for sizing and orders.</p></div><div><h3>Honest Pricing</h3><p>Clear prices in ₹ with discounts shown only when valid.</p></div></div></div></section>
+<section style="background:var(--soft)"><div class="wrap" style="max-width:520px"><h2>Newsletter</h2><form id="nl"><label for="ne">Email</label><input id="ne" type="email" required><label style="display:flex;gap:8px;align-items:start"><input id="nc" type="checkbox" style="width:auto;margin-top:4px" required> I agree to receive marketing emails and can unsubscribe anytime.</label><p class="err" id="nm"></p><button class="btn">Subscribe</button></form></div></section>`;
+$('#nl').onsubmit=async e=>{e.preventDefault();const m=$('#nm');if(!live){m.textContent='Newsletter is not connected yet. Add Supabase keys in CFG.';return}
+try{await sb('newsletter_subscribers',{method:'POST',body:JSON.stringify({email:$('#ne').value,consent:true})});m.className='ok';m.textContent='Thanks for subscribing!'}catch(x){m.className='err';m.textContent='Could not subscribe. Please try again.'}}}
+let pageN=1;
+function shop(q){const cats=[...new Set(P.map(p=>p.category).filter(Boolean))],st={s:q.get('s')||'',cat:q.get('cat')||'',max:q.get('max')||'',av:q.get('av')||'',sort:q.get('sort')||''};
+app.innerHTML=`<section><div class="wrap"><h1>Shop</h1><div class="tools" style="margin-top:16px"><input id="fs" placeholder="Search products" value="${esc(st.s)}" aria-label="Search"><select id="fc"><option value="">All categories</option>${cats.map(c=>`<option ${c==st.cat?'selected':''}>${esc(c)}</option>`).join('')}</select><select id="fm"><option value="">Any price</option>${[500,1000,1500,2500].map(v=>`<option value="${v}" ${v==st.max?'selected':''}>Under ${inr(v)}</option>`).join('')}</select><select id="fa"><option value="">All items</option><option value="1" ${st.av?'selected':''}>In stock only</option></select><select id="fo"><option value="">Sort: Default</option><option value="new" ${st.sort=='new'?'selected':''}>Newest</option><option value="lo" ${st.sort=='lo'?'selected':''}>Price: low to high</option><option value="hi" ${st.sort=='hi'?'selected':''}>Price: high to low</option></select></div><div id="res"></div></div></section>`;
+const run=()=>{let l=P.filter(p=>(!st.s||p.name.toLowerCase().includes(st.s.toLowerCase()))&&(!st.cat||p.category==st.cat)&&(!st.max||p.price<=+st.max)&&(!st.av||stockOf(p)>0));
+if(st.sort=='lo')l.sort((a,b)=>a.price-b.price);if(st.sort=='hi')l.sort((a,b)=>b.price-a.price);if(st.sort=='new')l.sort((a,b)=>b.created-a.created);
+const per=8,pages=Math.max(1,Math.ceil(l.length/per));pageN=Math.min(pageN,pages);
+$('#res').innerHTML=l.length?`<div class="grid">${l.slice((pageN-1)*per,pageN*per).map(card).join('')}</div>${pages>1?`<div class="pg">${Array.from({length:pages},(_,i)=>`<button class="chip ${i+1==pageN?'sel':''}" data-p="${i+1}">${i+1}</button>`).join('')}</div>`:''}`:'<div class="empty"><h2>No products found</h2><p>Try different filters, or check back soon for new arrivals.</p></div>';
+document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{pageN=+b.dataset.p;run();scrollTo(0,0)})};
+const upd=()=>{st.s=$('#fs').value;st.cat=$('#fc').value;st.max=$('#fm').value;st.av=$('#fa').value;st.sort=$('#fo').value;pageN=1;run()};
+['fs','fc','fm','fa','fo'].forEach(i=>$('#'+i).oninput=upd);run();if(q.get('focus'))$('#fs').focus()}
+function product(id){const p=P.find(x=>x.id==id);if(!p){app.innerHTML='<div class="wrap empty"><h2>Product not found</h2><a class="btn" href="#/shop">Back to shop</a></div>';return}
+const sizes=[...new Set(p.variants.map(v=>v.size))],cols=[...new Set(p.variants.map(v=>v.color))];let sz='',co='',q=1;
+const disc=p.original_price>p.price?Math.round(100-p.price/p.original_price*100):0,imgs=p.images?.length?p.images:[null,null,null];
+const avail=(s,c)=>{const v=p.variants.find(v=>v.size==s&&v.color==c);return v?v.stock:0};
+const draw=()=>{const ok=s=>!co||avail(s,co)>0,okc=c=>!sz||avail(sz,c)>0,left=sz&&co?avail(sz,co):null;
+$('#opts').innerHTML=`<b>Size</b><div class="chips">${sizes.map(s=>`<button class="chip ${s==sz?'sel':''}" data-s="${s}" ${ok(s)&&p.variants.some(v=>v.size==s&&v.stock>0)?'':'disabled'}>${s}</button>`).join('')}</div><b>Colour</b><div class="chips">${cols.map(c=>`<button class="chip ${c==co?'sel':''}" data-c="${c}" ${okc(c)&&p.variants.some(v=>v.color==c&&v.stock>0)?'':'disabled'}>${c}</button>`).join('')}</div>
+<p>${left===null?(stockOf(p)?'In stock':'Out of stock'):left>0?(left<=5?`Only ${left} left`:'In stock'):'This combination is unavailable'}</p><b>Quantity</b><div class="chips"><button class="chip" id="qm">−</button><span style="padding:8px 6px">${q}</span><button class="chip" id="qp">+</button></div>`;
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{sz=b.dataset.s;if(co&&!avail(sz,co))co='';q=1;draw()});document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{co=b.dataset.c;if(sz&&!avail(sz,co))sz='';q=1;draw()});
+$('#qm').onclick=()=>{q=Math.max(1,q-1);draw()};$('#qp').onclick=()=>{if(sz&&co&&q>=avail(sz,co))return;q++;draw()}};
+app.innerHTML=`<section><div class="wrap"><a href="#/shop">← Back to shop</a><div class="pd" style="margin-top:14px"><div><div class="ph" id="big">${imgs[0]?`<img src="${esc(imgs[0])}" alt="${esc(p.name)}">`:'Image placeholder'}</div><div class="thumbs">${imgs.map((u,i)=>`<div class="ph" data-i="${i}">${u?`<img src="${esc(u)}" alt="">`:i+1}</div>`).join('')}</div></div>
+<div><h1>${esc(p.name)}</h1><p class="pr"><b style="font-size:24px">${inr(p.price)}</b>${disc?`<s>${inr(p.original_price)}</s><i>${disc}% off</i>`:''}</p><p>${esc(p.description)}</p><p><b>Fabric:</b> ${esc(p.fabric||'—')}</p><div id="opts"></div><p class="err" id="em"></p>
+<div style="display:grid;gap:10px"><button class="btn acc" id="ac" ${stockOf(p)?'':'disabled'}>Add to Cart</button><a class="btn ghost" id="wa" target="_blank" rel="noopener">Enquire on WhatsApp</a></div></div></div></div></section><div id="rel"></div>`;
+$('#wa').href=`https://wa.me/${CFG.WHATSAPP}?text=${encodeURIComponent('Hi, I am interested in '+p.name+' ('+inr(p.price)+')')}`;
+document.querySelectorAll('[data-i]').forEach(t=>t.onclick=()=>{if(imgs[t.dataset.i])$('#big').innerHTML=`<img src="${esc(imgs[t.dataset.i])}" alt="">`});
+$('#ac').onclick=()=>{const m=$('#em');if(!sz||!co){m.textContent='Please select '+(!sz&&!co?'a size and colour':!sz?'a size':'a colour')+'.';return}m.textContent='';if(!add(p.id,sz,co,q))m.textContent='Not enough stock for that quantity.'};
+draw();$('#rel').innerHTML=sec('You May Also Like',P.filter(x=>x.id!=p.id&&x.category==p.category).concat(P.filter(x=>x.id!=p.id&&x.category!=p.category)).slice(0,4),'#/shop')}
+function about(){app.innerHTML=`<section><div class="wrap" style="max-width:720px"><h1>About Chotu Garment</h1><p style="margin-top:16px">Chotu Garment is a clothing business serving customers across India.</p><h3 style="margin-top:24px">Our story</h3><p>Add your real brand story here from Website Content in the admin panel.</p><h3 style="margin-top:24px">Quality commitment</h3><p>We aim to offer well-made clothing at honest prices.</p><h3 style="margin-top:24px">Customer service</h3><p>Reach us anytime by WhatsApp, phone or email.</p></div></section>`}
+function contact(){app.innerHTML=`<section><div class="wrap pd"><div><h1>Contact Us</h1><p>Email: ${esc(CFG.EMAIL)}<br>Phone: ${esc(CFG.PHONE)}${CFG.ADDRESS?'<br>Address: '+esc(CFG.ADDRESS):''}${CFG.HOURS?'<br>Hours: '+esc(CFG.HOURS):''}</p><a class="btn acc" target="_blank" rel="noopener" href="https://wa.me/${CFG.WHATSAPP}">Chat on WhatsApp</a></div>
+<form id="cf"><label for="n">Name</label><input id="n" required maxlength="80"><label for="e">Email</label><input id="e" type="email" required><label for="p">Phone</label><input id="p" type="tel" required pattern="[0-9+ ]{10,15}"><label for="sb">Subject</label><input id="sb" required maxlength="120"><label for="m">Message</label><textarea id="m" rows="5" required maxlength="1500"></textarea><input id="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><p class="err" id="cm"></p><button class="btn">Send Message</button></form></div></section>`;
+let t0=Date.now();$('#cf').onsubmit=async e=>{e.preventDefault();const m=$('#cm');m.className='err';if($('#hp').value||Date.now()-t0<3000){m.textContent='Please wait a moment and try again.';return}
+if(!live){m.textContent='Enquiry saving is not connected yet. Add Supabase keys in CFG, or use WhatsApp.';return}
+try{await sb('enquiries',{method:'POST',body:JSON.stringify({name:$('#n').value,email:$('#e').value,phone:$('#p').value,subject:$('#sb').value,message:$('#m').value})});m.className='ok';m.textContent='Thank you! We will get back to you soon.';e.target.reset()}catch(x){m.textContent='Could not send your message. Please try again.'}}}
+/* ---------- admin ---------- */
+let AT=null,AU=null;try{AT=sessionStorage.getItem('cg_t')}catch(e){}
+const AH=()=>({apikey:CFG.SUPABASE_ANON_KEY,Authorization:'Bearer '+(AT||CFG.SUPABASE_ANON_KEY),'Content-Type':'application/json'});
+async function ar(path,method='GET',body,extra={}){const r=await fetch(CFG.SUPABASE_URL+'/rest/v1/'+path,{method,headers:{...AH(),...extra},body:body?JSON.stringify(body):undefined});const t=await r.text();if(!r.ok){let m=t;try{m=JSON.parse(t).message}catch(_){}throw new Error(m)}return t?JSON.parse(t):null}
+const lst=s=>[...new Set(s.split(',').map(x=>x.trim()).filter(Boolean))],slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')||'item';
+const logout=()=>{AT=AU=null;try{sessionStorage.removeItem('cg_t')}catch(e){}admin()};
+async function admin(){if(!live){app.innerHTML='<div class="wrap empty"><h2>Admin needs Supabase</h2><p>Set your keys in CFG and host this page yourself.</p></div>';return}
+if(AT&&!AU){try{const r=await fetch(CFG.SUPABASE_URL+'/auth/v1/user',{headers:AH()});if(!r.ok)throw 0;AU=(await r.json()).id}catch(e){AT=null}}
+if(!AT)return loginView();let pr=[];try{pr=await ar('profiles?select=role&id=eq.'+AU)}catch(e){}
+if(pr[0]?.role!='admin'){app.innerHTML='<div class="wrap empty"><h2>Not authorised</h2><p>This account is not an admin.</p><button class="btn" id="lo">Logout</button></div>';$('#lo').onclick=logout;return}dash('products')}
+function loginView(){app.innerHTML=`<section><div class="wrap" style="max-width:420px"><h1>Admin Login</h1><form id="lf"><label for="le">Email</label><input id="le" type="email" required autocomplete="username"><label for="lp">Password</label><input id="lp" type="password" required autocomplete="current-password"><p class="err" id="lm"></p><button class="btn" style="width:100%">Login</button></form><p><a href="#" id="fp2">Forgot password?</a></p></div></section>`;
+$('#lf').onsubmit=async e=>{e.preventDefault();const m=$('#lm');m.className='err';try{const r=await fetch(CFG.SUPABASE_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify({email:$('#le').value,password:$('#lp').value})});const j=await r.json();if(!r.ok)throw new Error(j.error_description||j.msg||'Login failed');AT=j.access_token;AU=j.user.id;try{sessionStorage.setItem('cg_t',AT)}catch(x){}admin()}catch(x){m.textContent=x.message}};
+$('#fp2').onclick=async e=>{e.preventDefault();const m=$('#lm');if(!$('#le').value){m.textContent='Enter your email first.';return}await fetch(CFG.SUPABASE_URL+'/auth/v1/recover',{method:'POST',headers:{apikey:CFG.SUPABASE_ANON_KEY,'Content-Type':'application/json'},body:JSON.stringify({email:$('#le').value})});m.className='ok';m.textContent='If the account exists, a reset email has been sent.'}}
+async function dash(tab){app.innerHTML=`<section><div class="wrap"><div class="sh"><h1>Admin</h1><button class="btn ghost" id="lo">Logout</button></div><div class="chips">${['products','enquiries','orders'].map(t=>`<button class="chip ${t==tab?'sel':''}" data-t="${t}">${t[0].toUpperCase()+t.slice(1)}</button>`).join('')}</div><div id="ad">Loading…</div></div></section>`;$('#lo').onclick=logout;document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>dash(b.dataset.t));
+try{await({products:aProducts,enquiries:aEnq,orders:aOrd})[tab]()}catch(e){$('#ad').innerHTML='<p class="err">'+esc(e.message)+'</p>'}}
+async function aProducts(){const L=await ar('products?select=*,variants:product_variants(*)&order=created_at.desc');
+$('#ad').innerHTML=`<p>Total: <b>${L.length}</b> · Published: <b>${L.filter(p=>p.is_published).length}</b> · Out of stock: <b>${L.filter(p=>!stockOf(p)).length}</b></p><button class="btn acc" id="np">+ Add Product</button>${L.map(p=>`<div class="row"><span><b>${esc(p.name)}</b><br><small>${inr(p.price)} · stock ${stockOf(p)} · ${p.is_published?'Published':'Draft'}</small></span><span><button class="chip" data-e="${p.id}">Edit</button> <button class="chip" data-u="${p.id}">${p.is_published?'Unpublish':'Publish'}</button> <button class="chip" data-d="${p.id}">Delete</button></span></div>`).join('')||'<p class="empty">No products yet. Tap Add Product.</p>'}`;
+$('#np').onclick=()=>pform(null);const f=a=>document.querySelectorAll('['+a+']');
+f('data-e').forEach(b=>b.onclick=()=>pform(L.find(p=>p.id==b.dataset.e)));
+f('data-u').forEach(b=>b.onclick=async()=>{const p=L.find(p=>p.id==b.dataset.u);try{await ar('products?id=eq.'+p.id,'PATCH',{is_published:!p.is_published});dash('products')}catch(e){alert(e.message)}});
+f('data-d').forEach(b=>b.onclick=async()=>{if(!confirm('Delete this product permanently? Past orders are kept.'))return;try{await ar('products?id=eq.'+b.dataset.d,'DELETE');dash('products')}catch(e){alert(e.message)}})}
+async function upl(f){if(!['image/jpeg','image/png','image/webp'].includes(f.type))throw new Error('Only JPG, PNG or WebP allowed');if(f.size>5242880)throw new Error('Each image must be under 5 MB');const n=crypto.randomUUID()+'.'+f.type.split('/')[1];const r=await fetch(CFG.SUPABASE_URL+'/storage/v1/object/product-images/'+n,{method:'POST',headers:{apikey:CFG.SUPABASE_ANON_KEY,Authorization:'Bearer '+AT,'Content-Type':f.type},body:f});if(!r.ok)throw new Error('Upload failed');return CFG.SUPABASE_URL+'/storage/v1/object/public/product-images/'+n}
+async function pform(p){const cats=await ar('categories?select=id,name&order=name');let imgs=[...(p?.images||[])];const sk={};(p?.variants||[]).forEach(v=>sk[v.size+'|'+v.color]=v.stock);
+const sz=p?[...new Set(p.variants.map(v=>v.size))].join(', '):'S, M, L, XL, XXL',co=p?[...new Set(p.variants.map(v=>v.color))].join(', '):'Black, White',ck=(id,v,t)=>`<label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="${id}" style="width:auto" ${v?'checked':''}> ${t}</label>`;
+$('#ad').innerHTML=`<h2>${p?'Edit':'Add'} product</h2><form id="pf"><label for="pn">Name</label><input id="pn" required value="${esc(p?.name)}"><label for="ps">SKU / code</label><input id="ps" value="${esc(p?.sku)}"><label for="pc">Category</label><select id="pc"><option value="">None</option>${cats.map(c=>`<option value="${c.id}" ${p?.category_id==c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select><input id="nc2" placeholder="Or type a new category" style="margin-top:6px"><label for="pp">Selling price (₹)</label><input id="pp" type="number" min="0" step="0.01" required value="${p?.price??''}"><label for="po">Original price (₹, optional)</label><input id="po" type="number" min="0" step="0.01" value="${p?.original_price??''}"><label for="pf2">Fabric</label><input id="pf2" value="${esc(p?.fabric)}"><label for="pd">Description</label><textarea id="pd" rows="4">${esc(p?.description)}</textarea><label for="psz">Sizes (comma separated)</label><input id="psz" value="${esc(sz)}"><label for="pco">Colours (comma separated)</label><input id="pco" value="${esc(co)}"><label>Stock per variant</label><div id="sg"></div>${ck('fe',p?.is_featured,'Featured')}${ck('fn',p?.is_new,'New arrival')}${ck('fb',p?.is_best_seller,'Best seller')}${ck('fp3',p?.is_published,'Published (visible to customers)')}<label>Images (first = main)</label><input id="pi" type="file" accept="image/jpeg,image/png,image/webp" multiple><p id="um" class="err"></p><div class="thumbs" id="ig" style="flex-wrap:wrap"></div><p class="err" id="pm"></p><button class="btn acc" id="sv">Save product</button> <button type="button" class="btn ghost" id="cx">Cancel</button></form>`;
+const grid=()=>{document.querySelectorAll('[data-k]').forEach(i=>sk[i.dataset.k]=i.value);const S=lst($('#psz').value),C=lst($('#pco').value);$('#sg').innerHTML=S.flatMap(s=>C.map(c=>`<div class="row"><span>${esc(s)} / ${esc(c)}</span><input type="number" min="0" style="width:90px" data-k="${esc(s+'|'+c)}" value="${sk[s+'|'+c]??0}"></div>`)).join('')};
+const gal=()=>{$('#ig').innerHTML=imgs.map((u,i)=>`<div style="width:96px"><div class="ph" style="width:96px;aspect-ratio:1"><img src="${esc(u)}" alt=""></div><small>${i?`<a href="#" data-m="${i}">Make main</a> · `:'Main · '}<a href="#" data-x="${i}">Remove</a></small></div>`).join('');
+document.querySelectorAll('[data-m]').forEach(a=>a.onclick=e=>{e.preventDefault();imgs.unshift(imgs.splice(+a.dataset.m,1)[0]);gal()});document.querySelectorAll('[data-x]').forEach(a=>a.onclick=e=>{e.preventDefault();imgs.splice(+a.dataset.x,1);gal()})};
+grid();gal();$('#psz').oninput=$('#pco').oninput=grid;$('#cx').onclick=()=>dash('products');
+$('#pi').onchange=async e=>{const fs=[...e.target.files],m=$('#um');m.className='err';m.textContent='';for(let i=0;i<fs.length;i++){try{m.className='ok';m.textContent=`Uploading ${i+1} of ${fs.length}…`;imgs.push(await upl(fs[i]));gal()}catch(x){m.className='err';m.textContent=x.message;return}}m.textContent='Upload complete.';e.target.value=''};
+$('#pf').onsubmit=async e=>{e.preventDefault();const m=$('#pm');m.className='err';m.textContent='';const price=+$('#pp').value,orig=$('#po').value?+$('#po').value:null,S=lst($('#psz').value),C=lst($('#pco').value);
+if(!(price>=0)||(orig!==null&&orig<price)){m.textContent='Original price must be at least the selling price.';return}if(!S.length||!C.length){m.textContent='Add at least one size and one colour.';return}
+grid();$('#sv').disabled=true;try{let cid=$('#pc').value||null;const nc=$('#nc2').value.trim();if(nc)cid=(await ar('categories','POST',{name:nc,slug:slug(nc)+'-'+Math.random().toString(36).slice(2,5)},{Prefer:'return=representation'}))[0].id;
+const b={name:$('#pn').value.trim(),sku:$('#ps').value.trim()||null,category_id:cid,description:$('#pd').value,fabric:$('#pf2').value,price,original_price:orig,images:imgs,is_featured:$('#fe').checked,is_new:$('#fn').checked,is_best_seller:$('#fb').checked,is_published:$('#fp3').checked,updated_at:new Date().toISOString()};
+let id=p?.id;if(id)await ar('products?id=eq.'+id,'PATCH',b);else{b.slug=slug(b.name)+'-'+Math.random().toString(36).slice(2,6);id=(await ar('products','POST',b,{Prefer:'return=representation'}))[0].id}
+const rows=S.flatMap(s=>C.map(c=>({product_id:id,size:s,color:c,stock:Math.max(0,parseInt(sk[s+'|'+c])||0)})));await ar('product_variants?on_conflict=product_id,size,color','POST',rows,{Prefer:'resolution=merge-duplicates'});
+const keep=new Set(rows.map(r=>r.size+'|'+r.color)),del=(p?.variants||[]).filter(v=>!keep.has(v.size+'|'+v.color)).map(v=>v.id);if(del.length)await ar('product_variants?id=in.('+del.join(',')+')','DELETE');dash('products')}catch(x){m.textContent=x.message;$('#sv').disabled=false}}}
+async function aEnq(){const L=await ar('enquiries?select=*&order=created_at.desc');$('#ad').innerHTML=`<p>Total: <b>${L.length}</b> · New: <b>${L.filter(x=>x.status=='new').length}</b></p>${L.map(x=>`<div class="row" style="display:block"><b>${esc(x.subject)}</b> ${x.status=='new'?'<span class="tag acc" style="position:static">New</span>':''}<br><small>${new Date(x.created_at).toLocaleString('en-IN')}</small><p style="margin:6px 0">${esc(x.message)}</p><small>${esc(x.name)} · <a href="tel:${esc(x.phone)}">${esc(x.phone)}</a> · <a href="mailto:${esc(x.email)}">${esc(x.email)}</a> · <a target="_blank" rel="noopener" href="https://wa.me/${esc(x.phone.replace(/\D/g,'').replace(/^(\d{10})$/,'91$1'))}">WhatsApp</a></small><br>${x.status=='new'?`<button class="chip" data-r="${x.id}">Mark as read</button>`:''}</div>`).join('')||'<p class="empty">No enquiries yet.</p>'}`;
+document.querySelectorAll('[data-r]').forEach(b=>b.onclick=async()=>{await ar('enquiries?id=eq.'+b.dataset.r,'PATCH',{status:'read'});dash('enquiries')})}
+async function aOrd(){const L=await ar('orders?select=*,order_items(*)&order=created_at.desc');const S=['new','confirmed','shipped','delivered','cancelled'];$('#ad').innerHTML=`<p>Total orders: <b>${L.length}</b></p>${L.map(o=>`<div class="row" style="display:block"><b>Order #${o.order_no}</b> · ${inr(o.total)}<br><small>${new Date(o.created_at).toLocaleString('en-IN')}</small><p style="margin:6px 0">${o.order_items.map(i=>`${esc(i.product_name)} (${esc(i.size)}/${esc(i.color)}) × ${i.quantity}`).join('<br>')}</p><small>${esc(o.customer_name)} · <a href="tel:${esc(o.customer_phone)}">${esc(o.customer_phone)}</a><br>${esc(o.shipping_address)}${o.notes?'<br>Note: '+esc(o.notes):''}</small><br><select data-o="${o.id}" style="width:auto;margin-top:6px">${S.map(s=>`<option ${s==o.status?'selected':''}>${s}</option>`).join('')}</select></div>`).join('')||'<p class="empty">No orders yet.</p>'}`;
+document.querySelectorAll('[data-o]').forEach(s=>s.onchange=async()=>{try{await ar('orders?id=eq.'+s.dataset.o,'PATCH',{status:s.value})}catch(e){alert(e.message)}})}
+/* ---------- router ---------- */
+function route(){const[h,qs]=(location.hash||'#/').slice(1).split('?'),q=new URLSearchParams(qs||''),parts=h.split('/').filter(Boolean);
+document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href').split('?')[0]=='#/'+(parts[0]||'')));
+if(!parts[0])home();else if(parts[0]=='shop')shop(q);else if(parts[0]=='product')product(parts[1]);else if(parts[0]=='about')about();else if(parts[0]=='contact')contact();else if(parts[0]=='admin')admin();else home();
+document.title=(parts[0]=='product'?(P.find(x=>x.id==parts[1])||{}).name+' – ':'')+'Chotu Garment';if(!q.get('focus'))scrollTo(0,0)}
+$('#fe').textContent=CFG.EMAIL;$('#fp').textContent=CFG.PHONE;$('#yr').textContent=new Date().getFullYear();
+addEventListener('hashchange',route);save();drawer(0);load().then(route);
+</script></body></html>
